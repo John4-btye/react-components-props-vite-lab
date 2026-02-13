@@ -3,9 +3,9 @@ import { render, screen } from "@testing-library/react";
 import About from "../components/About";
 import logo from "../assets/logo"
 
-test("renders a <aside> element", () => {
+test("renders a <header> element", () => {
   const { container } = render(<About />);
-  expect(container.querySelector("aside")).toBeInTheDocument();
+  expect(container.querySelector("header")).toBeInTheDocument();
 });
 
 test("renders a <img> with the blog logo and alt text of 'blog logo'", () => {
@@ -24,7 +24,7 @@ test("uses a default value for the image if no image is passed as a prop", () =>
 
 test("renders a <p> with the about text", () => {
   render(<About about="About this blog" />);
-  const p = screen.queryByText("About this blog");
+  const p = screen.queryByText("This is a blog about React.");
   expect(p).toBeInTheDocument();
   expect(p.tagName).toBe("P");
 });
